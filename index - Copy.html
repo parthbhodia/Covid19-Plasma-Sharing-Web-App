@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <!-- Standard Meta -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <!-- Site Properties -->
+  <title>FIND PLASMA DONOR</title>
+
+  <!-- <link rel="stylesheet" type="text/css" href="/Semantic/dist/components/reset.css">
+  <link rel="stylesheet" type="text/css" href="/Semantic/dist/components/site.css">
+
+  <link rel="stylesheet" type="text/css" href="/Semantic/dist/components/container.css">
+  <link rel="stylesheet" type="text/css" href="Semantic/dist/components/grid.css">
+  <link rel="stylesheet" type="text/css" href="Semantic/dist/components/header.css">
+  <link rel="stylesheet" type="text/css" href="Semantic/dist/components/image.css">
+  <link rel="stylesheet" type="text/css" href="Semantic/dist/components/menu.css">
+
+  <link rel="stylesheet" type="text/css" href="Semantic/dist/components/divider.css">
+  <link rel="stylesheet" type="text/css" href="Semantic/dist/components/list.css">
+  <link rel="stylesheet" type="text/css" href="Semantic/dist/components/segment.css">
+  <link rel="stylesheet" type="text/css" href="Semantic/dist/components/dropdown.css">
+  <link rel="stylesheet" type="text/css" href="Semantic/dist/components/icon.css">
+  <link rel="stylesheet" type="text/css" href="Semantic/dist/components/transition.css">
+  <link rel="stylesheet" href="Leaflet-master/dist/leaflet.css" />-->
+
+<link rel="stylesheet" href="http://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/dataTables.semanticui.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" integrity="sha512-8bHTC73gkZ7rZ7vpqUQThUDhqcNFyYi2xgDgPDHc+GXVGHXq+xPjynxIopALmOPqzo9JZj0k6OqqewdGO3EsrQ==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+
+  <!-- <script defer src="https://code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script> -->
+
+  <!-- <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script> -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin="anonymous"></script>
+<script defer type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+<script defer type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/dataTables.semanticui.min.js"></script>
+
+<script defer src="https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js" charset="utf-8"></script>
+<script defer src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.flash.min.js" charset="utf-8"></script>
+
+
+
+<script defer src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.html5.min.js" charset="utf-8"></script>
+<script defer src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.print.min.js" charset="utf-8"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/transition.min.js" integrity="sha512-MCuLP92THkMwq8xkT2cQg5YpF30l3qzJuBRf/KsbQP1czFkRYkr2dSkCHmdJETqVmvIq5Y4AOVE//Su+cH+8QA==" crossorigin="anonymous"></script>
+  <!-- <script defer src="js/jquery-ui.min.js" charset="utf-8"></script> -->
+
+  <!-- <script src="assets/library/jquery.min.js"></script> -->
+  <!-- <script defer src="Semantic/dist/components/transition.js"></script>
+  <script defer src="Semantic/dist/components/dropdown.js"></script>
+  <script defer src="Semantic/dist/components/visibility.js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js" integrity="sha512-dqw6X88iGgZlTsONxZK9ePmJEFrmHwpuMrsUChjAw1mRUhUITE5QU9pkcSox+ynfLhL15Sv2al5A0LVyDCmtUw==" crossorigin="anonymous"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/dropdown.min.js" integrity="sha512-8F/2JIwyPohlMVdqCmXt6A6YQ9X7MK1jHlwBJv2YeZndPs021083S2Z/mu7WZ5g0iTlGDYqelA9gQXGh1F0tUw==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin="anonymous"></script>
+  <style type="text/css">
+
+  body {
+    background-color: #FFFFFF;
+  }
+  .main.container {
+    margin-top: 2em;
+  }
+
+  .main.menu {
+    margin-top: 4em;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+    transition:
+      box-shadow 0.5s ease,
+      padding 0.5s ease
+    ;
+  }
+  .main.menu .item img.logo {
+    margin-right: 1.5em;
+  }
+
+  .overlay {
+    float: left;
+    margin: 0em 3em 1em 0em;
+  }
+  .overlay .menu {
+    position: relative;
+    left: 0;
+    transition: left 0.5s ease;
+  }
+
+  .main.menu.fixed {
+    background-color: #FFFFFF;
+    border: 1px solid #DDD;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+  }
+  .overlay.fixed .menu {
+    left: 800px;
+  }
+
+  .text.container .left.floated.image {
+    margin: 2em 2em 2em -4em;
+  }
+  .text.container .right.floated.image {
+    margin: 2em -4em 2em 2em;
+  }
+
+  .ui.footer.segment {
+    margin: 5em 0em 0em;
+    padding: 5em 0em;
+  }
+
+  #map {
+	width: 100%;
+	height: 800px;
+}
+
+  </style>
+
+</head>
+
+
+
+
+
+<body>
+
+    <div class='ui main container'>
+
+
+
+
+                <div class="ui grid">
+                    <div class="row">
+
+                <div class="column">
+
+                    <div class="ui breadcrumb">
+                        <a class="active section" href="../index.php"> Home</a>
+                       
+                    </div>
+                </div>
+
+                <div class="right floated column">
+                    <form action="register/" method = "get">
+                        <button class='right floated'>Register</button>
+                    </form>   
+                </div>
+            </div>
+            </div>
+
+
+
+            <div class = 'ui segment '>
+
+
+                <div class="ui four column centered grid">
+                    <div class="row">
+                        <h1 class="ui header">FIND COVID PLASMA DONOR</h1>
+                    </div>
+
+                </div>
+
+                <div class="ui relaxed grid ">
+
+                    <div class="four wide column">
+                        <div class="row">
+                                <div class="ui sub header">Donor Type</div>
+                                    <select
+                                    id = 'donor_type' class="ui search fluid dropdown multiple" autocomplete ='off' multiple = ''></select>
+                        </div>
+
+                        <br>
+                        <div class="row">
+                                <div class="ui sub header">Select Blood Group</div>
+                                    <select
+                                    id = 'blood_type' class="ui search fluid dropdown multiple" autocomplete ='off' multiple = ''></select>
+
+                        </div>
+                        <br>
+                        <div class="row">
+                                <div class="ui sub header">City</div>
+                                    <select
+                                    id = 'city' class="ui search fluid dropdown multiple" autocomplete ='off' multiple = ''></select>
+
+                        </div>
+
+
+                    </div>
+
+
+
+                        <div class="twelve wide column">
+                            <div class="row">
+                                <div id = 'map-container'>
+                                    <div id='map'></div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+
+        <!-- Table Container - Data Tables -->
+
+            <div class = "row" id ='table-container'>
+                <div class='ui sixteen wide columns'>
+                    <div class="ui segment">
+
+
+                        <div class="ui menu top" id='tabs'>
+                            <a class="item" data-tab="po">PO Details</a>
+
+                            <a class="active item" data-tab="circuit">Circuit</a>
+
+                            <a class="item" data-tab="segment">Segment</a>
+
+                            <a class="item" data-tab="lob">LOB Total Cost</a>
+
+                            <a class="item" data-tab="po_unmapped">PO Unmapped</a>
+
+                        </div>
+
+
+
+                        <div class="ui tab active" data-text='BB Cost 6453 - Circuit Report' data-tab="circuit" style="overflow-x:auto;" >
+                            <table class="ui celled table" id ="table_circuit">
+                                <thead>
+                                    <tr>
+                                        <th>Circuit Id</th>
+                                        <th>A end Site</th>
+                                        <th>B end Site</th>
+                                        <th>A End City</th>
+                                        <th>B End City</th>
+                                        <th>A End Address</th>
+                                        <th>B End Address</th>
+                                        <th>Speed (Gbps)</th>
+                                        <th>IN 95 PCTL(Gbps)</th>
+                                        <th>OUT 95 PCTL(Gbps)</th>
+                                        <th>MAX 95 PCTL(Gbps)</th>
+                                        <th>Status</th>
+                                        <th>Hops</th>
+                                        <th>Monthly Amount In USD(6453)</th>
+                                        <th>Monthly Amount In USD(All LOB)</th>
+                                    </tr>
+                                </thead>
+                                <tbody id = 'tbody_circuit'>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="ui tab" data-text='BB Cost 6453 - Segment Report' data-tab="segment">
+                            <table class="ui celled table" id="table_segment">
+                                <thead>
+                                    <tr>
+                                        <th>Circuit</th>
+                                        <th>Segment</th>
+                                        <th>Hops</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tbody_segment"></tbody>
+                            </table>
+                        </div>
+
+                        <div class="ui tab" data-text='BB Cost 6453 - PO Report' data-tab="po">
+                            <table class="ui celled table" id="table_po">
+                                <thead>
+                                    <tr>
+                                        <th>Circuit ID</th>
+                                        <th>PO Number</th>
+                                        <th>NIMS Circuit ID</th>
+                                        <th>TIGER OO</th>
+                                        <th>Bill Start Date(NEW MRC)</th>
+                                        <th>Contract term in Month</th>
+                                        <th>Amount in USD</th>
+                                        <th>Vendor Name</th>
+                                        <th>Expiry Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tbody_po">
+                                </tbody>
+                            </table>
+                        </div>
+
+
+
+                        <div class="ui tab" data-text='BB Cost 6453 - LOB Report' data-tab="lob" >
+                            <table id="table_lob" class="ui celled table striped">
+                                <thead>
+                                    <tr>
+                                        <th rowspan="2" style="width:10%"></th>
+                                        <th colspan="2" style="width:10%" >Mapped with IPT BB Circuit</th>
+                                        <th colspan="2" style="width:10%" >Not mapped with IPT BB Circuit</th>
+                                        <th colspan="2" style="width:10%" >Total BACKBONE - IP 6453 Cost</th>
+                                    </tr>
+                                    <tr>
+                                        <th>No of POs</th>
+                                        <th>Monthly cost in USD</th>
+                                        <th>No of POs</th>
+                                        <th>Monthly cost in USD</th>
+                                        <th>No of POs</th>
+                                        <th>Monthly cost in USD</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody id = 'tbody_lob'>
+                                </tbody>
+
+                            </table>
+                        </div>
+
+                        <div class="ui tab" data-tab="po_unmapped"  data-text='BB Cost 6453 - Unmapped PO Report' style="overflow-y:hidden;overflow-x: auto;">
+                            <table id="table_po_unmapped" class="ui celled table nowrap stripped" style="width:100%">
+                                <thead>
+                                    <tr>
+
+                                        <th> PO Number</th>
+                                        <th>TIGER OO</th>
+                                        <th>NIMS Circuit ID</th>
+                                        <th>Total Qauntity</th>
+                                        <th>Speed/Bandwidth</th>
+                                        <th>Bandwidth Type</th>
+                                        <th>Expiry Date</th>
+                                        <th>Site A Name</th>
+                                        <th>Site B Name</th>
+                                        <th>Monthly Amount in USD</th>
+                                        <th>Line of Business</th>
+
+                                    </tr>
+                                </thead>
+
+                                <tbody id="tbody_po_unmapped">
+                                </tbody>
+
+
+                            </table>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div> <!-- Table End -->
+
+
+
+
+    </div> <!-- Container End -->
+    </div>
+
+    <br>
+    <br>
+
+    <script>
+
+    //init the code
+
+    $( document ).ready(function() {
+    bb_cost()
+
+        function linknotfound(){
+            alert('Site is under maintainece. Some function may not work. Sorry for the inconvenience.');
+        }
+
+
+
+        //Main Function
+        function bb_cost(){
+
+
+            $('#map-container').html('');
+            $('#map-container').html('<div id = "map"></div>');
+            //
+
+            var list_of_tabs_tbody = ['po',]
+            //Init dropdowns
+            var list_of_dropdowns = ['blood_type','donor_type', 'status','segment','bandwidth','po_number', 'circuit'];
+
+            for(let i in list_of_dropdowns)
+            {
+                $('#' + list_of_dropdowns[i]).dropdown('clear');
+                //	$('#' + list_of_dropdowns[i]).parent().addClass('loading');
+
+            }
+
+            // $('#status').dropdown('set selected', 'All');
+
+            /*
+            $('#country').parent().addClass('loading');
+            $('#city_a').parent().addClass('loading');
+
+            $('#bandwidth').parent().addClass('loading');
+            $('#circuit').parent().addClass('loading');
+            $('#segment').parent().addClass('loading');
+            $('#po_number').parent().addClass('loading');
+
+            */
+
+
+            //Init Map
+            $('#map-container').html('');
+            $('#map-container').html('<div id = "map"></div>');
+            var map = L.map('map',{
+                doubleClickZoom:true,
+                dragging:true,
+                trackResize	:true,
+                inertia: true,
+                keyboard: true,
+                tap: true,
+                fadeAnimation: true,
+                zoomAnimation	:true,
+                markerZoomAnimation:true,
+                inertiaDeceleration: 3000,
+                easeLinearity: 0.2,
+                // fullscreenControl: {
+                // 	pseudoFullscreen: true},
+                // layers: [mapnikLayer]
+            }).setView([46.05, 11.05], 2); //gave initial position to the map with zoom level defined.
+
+            L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+                maxZoom: 13,
+                attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+                '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+                'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                id: 'mapbox.light'
+            }).addTo(map);
+
+            //init Tabs
+            $('.tabular.menu .item').tab();
+            $('#tabs').tab();
+
+        }
+
+    });
+
+    </script>
+
+		<script>
+
+		getData()
+		function update_city_a(data)
+		{
+			$('#city').parent().addClass('loading');
+			$('#city').dropdown('clear');
+			$('#city').empty();
+			let content = [];
+			let city_a = [];
+			let city_a_sorted = [];
+			for(let i in data)
+			{
+		 	city_a.push(data[i].city);
+			}
+			city_a_sorted = [...new Set(city_a)].sort();
+
+			for(let i in city_a_sorted){
+				content.push('<option value="'+ city_a_sorted[i] +'">'+ city_a_sorted[i] +'</option>');
+			}
+			$('#city').html(content.join(''));
+			console.log('city a updated');
+			$('#city').parent().removeClass('loading');
+
+		}
+
+		function update_donor_type(data)
+		{
+			$('#donor_type').parent().addClass('loading');
+			$('#donor_type').dropdown('clear');
+			$('#donor_type').empty();
+			let content = [];
+			let donor_type = [];
+			let donor_type_sorted = [];
+			for(let i in data)
+			{
+			donor_type.push(data[i].Donor_Type);
+			}
+			donor_type_sorted = [...new Set(donor_type)].sort();
+
+			for(let i in donor_type_sorted){
+				content.push('<option value="'+ donor_type_sorted[i] +'">'+ donor_type_sorted[i] +'</option>');
+			}
+			$('#donor_type').html(content.join(''));
+			console.log('donor_type a updated');
+			$('#donor_type').parent().removeClass('loading');
+
+		}
+
+		function update_blood_type(data)
+		{
+			$('#blood_type').parent().addClass('loading');
+			$('#blood_type').dropdown('clear');
+			$('#blood_type').empty();
+			let content = [];
+			let blood_type = [];
+			let blood_type_sorted = [];
+			for(let i in data)
+			{
+		 	blood_type.push(data[i].Blood_Type);
+			}
+			blood_type_sorted = [...new Set(blood_type)].sort();
+
+			for(let i in blood_type_sorted){
+				content.push('<option value="'+ blood_type_sorted[i] +'">'+ blood_type_sorted[i] +'</option>');
+			}
+			$('#blood_type').html(content.join(''));
+			console.log('city a updated');
+			$('#blood_type').parent().removeClass('loading');
+
+		}
+
+
+		async function getData(){
+			const responses = await fetch('/data');
+			const data =  await responses.json();
+			console.log(data);
+			update_city_a(data)
+			update_donor_type(data)
+			update_blood_type(data)
+
+			// for (item of data){
+			// 			// const root = document.createElement('div');
+			// 			// const name = document.createElement('div');
+			// 			// name.textContent = 'Name: ' + item.lat;
+			// 			// root.append(name);
+			// 			// document.body.append(root);
+			// 			console.log(item.City);
+			//
+			// 			$('#city').dropdown({'values': data.City});
+			//
+			// 		}
+
+		}
+
+
+		</script>
+
+
+<script>
+
+
+    $(document).ready(function() {
+
+        // fix main menu to page on passing
+        $('.main.menu').visibility({
+          type: 'fixed'
+        });
+        $('.overlay').visibility({
+          type: 'fixed',
+          offset: 80
+        });
+
+        // lazy load images
+        $('.image').visibility({
+          type: 'image',
+          transition: 'vertical flip in',
+          duration: 500
+        });
+
+        // show dropdown on hover
+        $('.main.menu  .ui.dropdown').dropdown({
+          on: 'hover'
+        });
+      })
+    ;
+    </script>

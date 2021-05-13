@@ -1,0 +1,265 @@
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title></title>
+
+
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1semantic.min.css" integrity="sha512-8bHTC73gkZ7rZ7vpqUQThUDhqcNFyYi2xgDgPDHc+GXVGHXq+xPjynxIopALmOPqzo9JZj0k6OqqewdGO3EsrQ==" crossorigin="anonymous"/> -->
+<!-- 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+
+<script defer src="http://code.jquery.com/jquery.min.js"> </script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+
+<script defer src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script> -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" integrity="sha256-9mbkOfVho3ZPXfM7W8sV2SndrGDuh7wuyLjtsWeTI1Q=" crossorigin="anonymous" />
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js" integrity="sha256-t8GepnyPmw9t+foMh3mKNvcorqNHamSKtKRxxpUEgFI=" crossorigin="anonymous"></script>
+  <!-- <script src="/assets/application.js" ></script> -->
+
+
+
+<script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCEsEJdLLF-NAvcX3FLw0DfnJjTt-lLr4Y&sensor=false&libraries=places"></script>
+
+</head>
+
+  <body>
+
+    <div class="ui hidden section divider"></div>
+
+    <div class="ui centered container">
+
+    
+    <form class="ui form segment" id='form1'>
+
+    <p>Tell Us About Yourself</p>
+
+    <div class="field">
+
+      <label>Are you looking for donor or receiver?</label>
+
+      <select class="ui dropdown" name="donor_type">
+
+        <option value="">Type</option>
+        <option value="Donors">Donor</option>
+        <option value="Recievers">Reciever</option>
+      </select>
+    </div>
+
+      <div class="field">
+
+        <label>Contact</label>
+
+        <input placeholder="Add Contact Details" name="contact" type="number">
+
+      </div>
+
+      
+
+      <div class="field">
+
+        <label>Gender</label>
+
+        <select class="ui dropdown" name="gender">
+
+          <option value="">Gender</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+      </div>
+
+      
+      <div class="field">
+
+        <label>Blood Type</label>
+
+        <select class="ui dropdown" name="blood_group">
+
+          <option value="">Blood Group</option>
+          <option value="male">O +</option>
+          <option value="female">O - </option>
+        </select>
+      </div>
+
+
+    <div class="field">
+      <label>Address</label>
+      <input placeholder="Flat/Street Address/Landmark" name="username" type="text">
+    </div>
+   
+    <div class="field">
+      <label for="locationTextField">Location</label>
+      <input id="locationTextField" name = 'location' type="text" size="50">
+    </div>
+
+
+
+    <div class="inline field">
+      <div class="ui checkbox">
+        <input type="checkbox" name="terms">
+        <label>I agree to the terms and conditions</label>
+      </div>
+    </div>
+    <div class="ui blue submit button">Submit</div>
+    <div class="ui error message"></div>
+
+  </form>
+
+</div>
+  </body>
+</html>
+
+<script>
+
+$(document).ready(function()
+{
+
+  var autocomplete = '';
+  function init() {
+                var input = document.getElementById('locationTextField');
+                 autocomplete = new google.maps.places.Autocomplete(input,{
+                  componentRestriction: {'country': ['in']}, 
+                  fields: ['geometry','name'],
+                  types:['geocode']
+
+
+                });
+                autocomplete.setComponentRestrictions({
+    country: ["in"],
+  });
+            }
+
+  google.maps.event.addDomListener(window, 'load', init);
+            
+            
+  $( ".ui.form" ).form({
+    fields: {
+      contact: {
+            identifier : "contact",
+            rules: [{
+                type : "length[2]",
+                prompt : 'Enter valid Mobile info'
+
+            }]
+        },
+        donor: {
+            identifier : "donor_type",
+            rules: [{
+                type : "empty"
+            }]
+        },
+        username: {
+            identifier : "username",
+            rules: [{
+                type : "empty"
+            }]
+        },
+        gender: {
+            identifier : "gender",
+            rules: [{
+                type : "empty"
+            }]
+        },
+        blood: {
+            identifier : "blood_group",
+            rules: [{
+                type : "empty"
+            }]
+        },
+        location: {
+            identifier : "location",
+            rules: [{
+                type : "empty"
+            }]
+        },
+        checkbox: {
+            identifier : "terms",
+            rules: [{
+                type : "checked"
+            }]
+        },
+      password: {
+          identifier : 'password',
+          inline : true,
+          on     : 'blur',
+          rules: [
+          {
+          type   : 'empty',
+          prompt : 'Please enter a password'
+        },
+        {
+          type   : 'length[6]',
+          prompt : 'Your password must be at least 6 characters'
+        }
+      ]
+    },
+    },
+    inline :true,
+    on: 'blur',
+    transition: 'fade down',
+    onSuccess: function() 
+    {
+       
+        //get lat long of location
+
+        const place = autocomplete.getPlace();
+        console.log(place);
+        const lat = place.geometry.location.lat();
+        const lon = place.geometry.location.lng();
+
+
+        let $form = $('.ui.form');
+        // get all values
+        let allFields = $form.form('get values');
+
+        const geo_location = $('#locationTextField').val();
+        let area = geo_location.split(",")[0]; 
+        let city = geo_location.split(",")[1]; 
+        let country = geo_location.split(",")[2]; 
+      
+
+        allFields.lat = lat;
+        allFields.long = lon;
+        allFields.area = area;
+        allFields.country = country;
+        allFields.city = city;
+
+
+       // Find our form in the DOM using its class name.
+        // var data = $("#form1").serialize();// Get the form data with our (yet to be defined) function.
+        const options ={
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      },
+        body: JSON.stringify(allFields) // body data type must match "Content-Type" header
+      }
+
+        fetch('/api',options)
+        .then(response  => {
+        // //   response.html().then(val =>
+        // //   {
+           console.log(response);
+        // //     console.log(val);
+        // //     //  window.location.href('localhost:3000/index.html');
+        //       alert('Form Successfully Submuted')
+              //  window.location = "/success"
+        // //   });
+        // //  });
+        
+        });
+
+       
+    }
+}).submit( function( e ) {
+    e.preventDefault();
+                // window.href('localhost:3000/index.html');
+
+
+});
+
+});
+</script>

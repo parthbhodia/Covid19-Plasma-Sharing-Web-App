@@ -1,0 +1,17 @@
+{
+  "name": "plasmadonors",
+  "version": "1.0.0",
+  "description": "Plasma Donor App",
+  "main": "index.js",
+  "scripts": {
+    "test": "run node "
+  },
+  "author": "Parth Bhodia",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-openid-connect": "^2.3.1",
+    "nedb": "^1.8.0",
+    "node-fetch": "^2.6.1"
+  }
+}
